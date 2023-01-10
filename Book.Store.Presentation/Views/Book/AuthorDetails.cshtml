@@ -1,0 +1,44 @@
+﻿
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Age
+                </th>
+                <th>
+                    Number Of Books
+                </th>
+                <th>
+                    Total Books Price
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewBag.AuthorDetails == null)
+            {
+                <tr>
+                    <td colspan="4" style="text-align:center"> No Record Found</td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var auth in ViewBag.AuthorDetails)
+                {
+                    <tr>
+                        <td>@auth.Name</td>
+                        <td>@auth.age</td>
+                        <td>@auth.count</td>
+                        <td>@auth.totalPrice</td>
+                    </tr>
+
+                }
+
+            }
+        </tbody>
+    </table>
+</div>

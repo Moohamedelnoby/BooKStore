@@ -1,0 +1,114 @@
+﻿@model BookModel
+
+<div class="col-12 grid-margin ">
+    <div class="row">
+        
+            <div class="col-12 grid-margin ">
+                <div class="card d-flex justify-content-center">
+                    <div class="card-body">
+                        <h4 class="card-title">Add Book</h4>
+
+                        <form data-ajax="true" enctype="multipart/form-data" class="form-sample"  method="post" asp-action="Add" asp-controller="Book">
+                            <p class="card-description">
+                                Book Info
+                            </p>
+                            <div class="row py-2">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Book Name</label>
+                                        <div class="col-sm-9">
+                                            <input asp-for="Name" type="text" class="form-control" />
+                                            <span asp-validation-for="Name" style="color:red"></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                              
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Category</label>
+                                        <div class="col-sm-9">
+                                            <select asp-for="Cat_Id" class="form-control" >
+                                                <option>Select Category</option>
+                                            @foreach (var cat in ViewBag.Categories)
+                                                {
+                                                <option value="@cat.CategoryID">@cat.CategoryName</option>
+                                                }
+                                            </select>
+                                        <span asp-validation-for="Cat_Id" style="color:red"></span>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row py-2">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label asp-for="Author_Id"  class="col-sm-3 col-form-label">Author</label>
+                                        <div class="col-sm-9">
+                                        <select asp-for="Author_Id" class="form-control select" multiple>
+                                                @foreach (var cat in ViewBag.Authors)
+                                                {
+                                                    <option value="@cat.Id">@cat.Name</option>
+                                                }
+                                        </select>
+                                        <span asp-validation-for="Author_Id" style="color:red"></span>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row ">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label asp-for="Description" class="col-sm-3 col-form-label"> Description</label>
+                                        <div class="col-sm-9">
+                                            <textarea asp-for="Description" type="text" class="form-control" rows="4"></textarea>
+                                        <span asp-validation-for="Description" style="color:red"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label asp-for="Price" class="col-sm-3 col-form-label">price</label>
+                                        <div class="col-sm-9">
+                                            <input asp-for="Price" type="number" class="form-control" />
+                                        <span asp-validation-for="Price" style="color:red"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        <div class="row py-2">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label asp-for="Rating" class="col-sm-3 col-form-label">Book Rating</label>
+                                    <div class="col-sm-9">
+                                        <input asp-for="Rating" type="number" class="form-control" />
+                                        <span asp-validation-for="Rating" style="color:red"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+@*                        <div asp-validation-summary="All" style="color:red"></div>
+*@                            <div class="text-center">
+                                <button type="submit" class="btn btn-success">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</div>
